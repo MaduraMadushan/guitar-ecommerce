@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {GET_PRODUCTS_BY_SELL, GET_PRODUCTS_BY_ARRIVA} from './type';
+import {GET_PRODUCTS_BY_SELL, GET_PRODUCTS_BY_ARRIVA, GET_BRANDS, GET_WOODS} from './type';
 import {PRODUCT_SERVER} from './../utils/misc';
 
 export const getProductsBySell = () => {
@@ -18,6 +18,27 @@ export const getProductsByArrival = () => {
 
         return {
             type: GET_PRODUCTS_BY_ARRIVA,
+            payload: request
+        }
+}
+
+export const getBrands = () => {
+    const request = axios.get(`${PRODUCT_SERVER}/brands`)
+    .then(response => response.data);
+
+        return {
+            type: GET_BRANDS,
+            payload: request
+        }
+
+}
+
+export const getWoods = () => {
+    const request = axios.get(`${PRODUCT_SERVER}/woods`)
+    .then(response => response.data);
+
+        return {
+            type: GET_WOODS,
             payload: request
         }
 }
