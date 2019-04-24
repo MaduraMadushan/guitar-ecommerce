@@ -8,6 +8,8 @@ import RegisterLogin from './components/Register_Login/RegisterLogin';
 import Register from './components/Register_Login/Register';
 import UserDashboard from './components/User/UserDashboard';
 import Shop from './components/Shop/Shop';
+import AddProduct from './components/User/Admin/AddProduct';
+
 
 const Routes = () => {
   return (
@@ -18,6 +20,7 @@ const Routes = () => {
         <Route path="/register_login" exact component={Auth(RegisterLogin, false)} />
         <Route path="/register" exact component={Auth(Register, false)} />
         <Route path="/user/dashboard" exact component={Auth(UserDashboard, true)} />
+        <Route path="/admin/add_product" exact component={Auth(AddProduct, true)} />
       </Switch>
     </Layout> 
    );

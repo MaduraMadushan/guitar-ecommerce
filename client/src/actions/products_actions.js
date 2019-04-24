@@ -1,5 +1,6 @@
 import axios from 'axios';
-import {GET_PRODUCTS_BY_SELL, GET_PRODUCTS_BY_ARRIVA, GET_BRANDS, GET_WOODS, GET_PRODUCTS_TO_SHOP} from './type';
+import {GET_PRODUCTS_BY_SELL, GET_PRODUCTS_BY_ARRIVA, GET_BRANDS, 
+    GET_WOODS, GET_PRODUCTS_TO_SHOP, ADD_PRODUCT, CLEAR_PRODUCT} from './type';
 import {PRODUCT_SERVER} from './../utils/misc';
 
 export const getProductsBySell = () => {
@@ -67,4 +68,21 @@ export const getWoods = () => {
             type: GET_WOODS,
             payload: request
         }
+}
+
+export const addProduct = (datatoSubmit) => {
+    const request = axios.post(`${PRODUCT_SERVER}/article`, datatoSubmit)
+        .then(response => response.data);
+
+    return {
+        type: ADD_PRODUCT,
+        payload: request
+    }
+}
+
+export const clearProduct = () => {
+    return {
+        type: CLEAR_PRODUCT,
+        payload: ''
+    }
 }
